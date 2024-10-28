@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenO Kai | Loot Section</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png" sizes="30x30">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amarante&family=Bigelow+Rules&family=Emilys+Candy&family=Ephesis&family=Tapestry&display=swap');
+        ::-webkit-scrollbar {
+            width: 15px;
+            color: #1A8EFE;
+        }
+          ::-webkit-scrollbar-track {
+            background: #000000; 
+        }
+          ::-webkit-scrollbar-thumb {
+            background: rgba(255, 200, 0, 0.4);
+        }
+          ::-webkit-scrollbar-thumb:hover {
+            background: rgba(26, 144, 254, 0.4); 
+        }
+        body{
+            margin: 0;
+            background-image: url("bg\ categories.jpg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: "Tapestry";
+        }
+        .title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+        }
+        .head {
+            display: flex;
+            width: auto;
+            height: 100px;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
+        }
+        .logo {
+            transition: all 0.5s ease;
+        }
+        .logo img {
+            height: 210px;
+            width: 210px;
+            position: relative;
+            top: -58px;
+        }
+        @font-face {
+            font-family: onePiece;
+            src: url("one\ piece\ font.ttf");
+        }
+        .head h1 {
+            font-family: onePiece;
+            font-style: normal;
+            font-weight: 500;
+            color: #FFC700;
+            text-shadow: 0 0 8px #1A8EFE;
+            -webkit-text-stroke: 3px black;
+            paint-order: stroke fill;
+            font-size: 45px;
+            position: relative;
+            top: -8px;
+            right: 15%;
+        }
+        .nav {
+            position: absolute;
+            top: 0.5%;
+            right: 0;
+            padding: 30px;
+            display: flex;
+            gap: 80px;
+        }
+        .nav a {
+            color: white;
+            font-size: 20px;
+            font-family: "Tapestry";
+            text-decoration: none;
+        }
+        .nav a:hover {
+            color: #FFC700;
+            text-shadow: 0 0 4px #1A8EFE;
+        }
+        .hoverCart {
+            width: 43px;
+            height: 43px;
+            padding-right: 20px;
+            position: relative;
+            top: -30%;
+        }
+        .cartopen {
+            display: inline-flex;   
+            height: auto;
+            width: 43px;
+            opacity: 0;
+            position: relative;
+            top: 5%;
+            left: -4%;
+            transition: opacity 0.2s ease;
+        }
+        .cart {
+            width: 40px;
+            height: auto;
+            position: relative;
+            bottom: 100%;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        .overlaycart:hover .cart {
+            opacity: 0;
+        }
+        .overlaycart:hover .cartopen {
+            opacity: 1;
+        }
+        h3 {
+            padding-bottom: 15px;
+            letter-spacing: -3px;
+            font-weight: lighter;
+            font-family: onePiece;
+            font-size: 80px;
+            color: #ffc800b7;
+            -webkit-text-stroke: 3px black;
+            text-shadow: 0 0 8px black;
+            paint-order: stroke fill;
+            text-decoration: line-through;
+        }
+        h3::after {
+            content: " LOOT SECTION | LOOT SECTION | LOOT SECTION | LOOT SECTION";
+        }
+        .menu-section {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .menu-section h3 {
+            margin-bottom: 10px;
+        }
+        .posters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .poster {
+            background-color: rgba(225, 185, 126, 0.5);
+            width: 450px;
+            height: 500px;
+            text-align: center;
+            box-shadow: 0 0px 10px rgba(0, 0, 0, 0.6);
+            border-radius: 40px;
+            transition: 0.25s ease;
+            opacity: 0.7;
+        }
+        .poster:hover {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+        .img {
+            margin: 0;
+            background-color: #000;
+            width: 100%;
+            height: 70%;
+            border-radius: 40px 40px 0px 0px;
+        }
+        .poster-title {
+            color: #FFC700;
+            -webkit-text-stroke: 2px #000;
+            paint-order: stroke fill;
+            text-shadow: 0 0 8px #0000008b;
+            font-size: 35px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .poster-price {
+            font-weight: bold;
+            font-size: 25px;
+            color: rgb(72, 0, 0);
+        }
+        .btn-add {
+            font-family: "Tapestry";
+            font-size: 21px;
+            background-color: #db0000;
+            color: white;
+            width: 100%;
+            padding: 14.25px 0;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 0px 0px 40px 40px;        
+        }
+        .btn-add:hover {
+            background-color: #000000d2;
+            color: #db0000;
+        }
+        .footer {
+            position: relative;
+            bottom: 0;
+            flex: 1;
+            height: 60px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 -8px 8px rgba(0, 0, 0, 0.4);
+        }
+        .footer p {
+            margin: 0;
+            font-family: onePiece;
+            color: #FFC700;
+            text-shadow: 0 0 4px #1A8EFE;
+            font-weight: 400;
+            font-size: 18px;
+            -webkit-text-stroke: 1px black;
+            paint-order: stroke fill;
+            padding: 18px;
+            text-align: center;
+        }
+        @media screen and (max-width: 1540px) {
+            h3::after {
+                content: " | LOOT SECTION | LOOT SECTION";
+            }
+            .poster {
+                width: 250px;
+                height: 300px;
+            }
+            .img {
+                border-radius: 20px 20px 0px 0px;
+                height: 190px;
+            }
+            .poster-title {
+                font-size: 18px;
+            }
+            .poster-price {
+                font-size: 16px;
+            }
+            .btn-add {
+                font-size: 15px;
+                padding: 14.25px 0;
+                border-radius: 0px 0px 20px 20px;        
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 1030px) {
+            .nav {
+                position: absolute;
+                top: 5%;
+                padding: 10px;
+                gap: 50px;
+            }
+            .nav a {
+                font-size: 15px;
+            }
+            .hoverCart {
+                width: 33px;
+                position: relative;
+                top: 0;
+            }
+            .cart {
+                width: 30px;
+            }
+            .cartopen {
+                width: 33px;
+            }
+            h3::after {
+                content: " | LOOT SECTION";
+            }
+            .footer {
+                position: relative;
+                bottom: 0;
+            }
+        }
+        @media screen and (max-width: 770px) {
+            .head {
+                height: 75px;
+            }
+            .logo img {
+                height: 190px;
+                width: 190px;
+            }
+            .head h1 {
+                font-size:37px;
+            }
+            .nav {
+                position: absolute;
+                top: 3%;
+                padding: 10px;
+                gap: 20px;
+            }
+            .nav a {
+                font-size: 13px;
+            }
+            .hoverCart {
+                width: 30px;
+                position: relative;
+                top: 7%;
+            }
+            .cart {
+                width: 27px;
+            }
+            .cartopen {
+                width: 30px;
+            }
+            h3 {
+                font-size: 65px;
+            }
+            h3::after {
+                content: " | LOOT SECTION";
+            }
+            .footer p{
+                font-size: 15px;
+            }
+        }
+        @media screen and (max-width: 440px) {
+            .head {
+                height: 110px;
+                display: flex;
+                flex-direction: column;
+            }
+            .logo img {
+                height: 190px;
+                width: 190px;
+            }
+            .head h1 {
+                font-size:37px;
+            }
+            .nav {
+                margin: 0;
+                gap: 0;
+                position: relative;
+                top: 75%;
+                display: flex;
+                width: 100%;
+                padding: 0;
+                background-color: #00000080;
+        
+            }
+            .nav a {
+                border: 1px solid #db000047;
+                margin: 0;
+                font-size: 8.5px;
+                padding-top: 8px;
+                height: 20px;
+                width: 150px;
+                text-align: center;
+            }
+            .nav a:nth-child(4) {
+                width: 90px;
+            }
+            .nav a:last-child {
+                width: 60px;
+            }
+            .hoverCart {
+                padding: 0;
+                width: 20px;
+                position: relative;
+                top: 85%;
+                left: 20%;
+            }
+            .cart {
+                width: 17px;
+            }
+            .cartopen {
+                width: 20px;
+            }
+            h3 {
+                font-size: 56px;
+            }
+            h3::before {
+                content: "|";
+            }
+            h3::after {
+                content: "|";
+            }
+        }
+    </style>
+    <script>
+        let onePieceCart = JSON.parse(localStorage.getItem('onePieceCart')) || [];
+
+        function addToCart(itemName, itemPrice) {
+            const item = {
+                collectiblename: itemName,
+                collectibleprice: itemPrice
+            };
+            onePieceCart.push(item);
+            localStorage.setItem('onePieceCart', JSON.stringify(onePieceCart));
+
+            alert(itemName + " added to your cart!");
+        }
+    </script>
+</head>
+<body>
+    <div class="head">
+        <div class="title">
+            <a class="logo" href="Home.html">
+                <img src="zeno kai logo.png" alt="logo">
+            </a>
+            <h1>ZENO KAi</h1>
+        </div>
+        <div class="nav">
+              <a href="Home.html">Welcome Aboard</a>
+              <a href="TreasureTrove.html">Treasure Trove</a>
+              <a href="LootSect.html">Loot Section</a>
+              <a href="About.html">Crew Log</a>
+              <a href="Cart.html" class="overlaycart">
+                <div class="hoverCart">
+                    <img class="cartopen" src="treasure.png" alt="treasure cart">
+                    <img class="cart" src="treasure close.png" alt="treasure cart">
+                </div>
+            </a>
+          </div>
+    </div>
+    <div class="menu-section">
+        <h3>LOOT SECTiON</h3>
+        <div class="posters">
+            <div class="poster">
+                <div class="img" style="background-image: url(https://i.ebayimg.com/images/g/CEYAAOSwE35lEtv-/s-l1200.jpg); background-size: cover;"></div>
+                <div class="poster-title">Luffy’s Hat</div>
+                <div class="poster-price">1000 berries</div>
+                <button class="btn-add" onclick="addToCart('Luffy’s Hat', 1000)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://geishasblade.com/wp-content/uploads/2023/09/enma-e1603206466683.jpg); background-size: cover;"></div>
+                <div class="poster-title">Zoro’s Swords</div>
+                <div class="poster-price">2500 berries</div>
+                <button class="btn-add" onclick="addToCart('Zoro’s Swords', 2500)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://classylightersco.com/cdn/shop/products/il_fullxfull.5600866012_syv1.jpg?v=1710671134); background-size: cover;"></div>
+                <div class="poster-title">Sanji’s Lighter</div>
+                <div class="poster-price">500 berries</div>
+                <button class="btn-add" onclick="addToCart('Sanji’s Lighter', 500)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://www.figurine-one-piece.com/wp-content/uploads/2017/05/One-Piece-Fruit-du-Démon-Gomu-Gomu-no-Mi-Luffy-Bandai-One-Piece.jpeg); background-size: cover;"></div>
+                <div class="poster-title">Gomu Gomu no Mi</div>
+                <div class="poster-price">3000 berries</div>
+                <button class="btn-add" onclick="addToCart('Gomu Gomu no Mi', 3000)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://gstoreq8.com/images/صور%20وصف%20المنتجات/G8966_1/s-2.jpg?1677762293117); background-size: cover;"></div>
+                <div class="poster-title">Mera Mera no Mi</div>
+                <div class="poster-price">4000 berries</div>
+                <button class="btn-add" onclick="addToCart('Mera Mera no Mi', 4000)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://i.etsystatic.com/25590692/r/il/af17b6/5506850646/il_fullxfull.5506850646_qy9w.jpg); background-size: cover;"></div>
+                <div class="poster-title">Ope Ope no Mi</div>
+                <div class="poster-price">5000 berries</div>
+                <button class="btn-add" onclick="addToCart('Ope Ope no Mi', 5000)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://lh4.googleusercontent.com/proxy/YKeioWk_AgvayqJ4GderDsW6B2pWoctoej4m7BKjyz34oxsFCgkoOE_xIUs3QM6Rh8HEr8dnGMx-1tOLyL8owHfYj7TSBZThJQ); background-size: cover;"></div>
+                <div class="poster-title">The Thousand Sunny Model</div>
+                <div class="poster-price">15000 berries</div>
+                <button class="btn-add" onclick="addToCart('The Thousand Sunny Model', 15000)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://onepiece-universe.com/wp-content/uploads/2023/03/usopp-weapon-2.jpg); background-size: cover;"></div>
+                <div class="poster-title">Usopp’s Slingshot</div>
+                <div class="poster-price">700 berries</div>
+                <button class="btn-add" onclick="addToCart('Usopp’s Slingshot', 700)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://i.etsystatic.com/17482697/r/il/ec5c64/3117419776/il_fullxfull.3117419776_gswf.jpg); background-size: cover;"></div>
+                <div class="poster-title">Nami’s Clima-Tact</div>
+                <div class="poster-price">1200 berries</div>
+                <button class="btn-add" onclick="addToCart('Nami’s Clima-Tact', 1200)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://img.lazcdn.com/g/p/f318231a250da008df6d2eabe8bafdae.jpg_720x720q80.jpg); background-size: cover;"></div>
+                <div class="poster-title">Chopper’s Hat</div>
+                <div class="poster-price">850 berries</div>
+                <button class="btn-add" onclick="addToCart('Chopper’s Hat', 850)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://down-ph.img.susercontent.com/file/ph-11134201-23030-v7crrl9e9aovfa); background-size: cover;"></div>
+                <div class="poster-title">Law's Hat</div>
+                <div class="poster-price">950 berries</div>
+                <button class="btn-add" onclick="addToCart('Law’s Hat', 950)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://i.ebayimg.com/images/g/kF0AAOSwhiNj29ee/s-l1200.jpg); background-size:cover;"></div>
+                <div class="poster-title">Franky’s Robot Model</div>
+                <div class="poster-price">2300 berries</div>
+                <button class="btn-add" onclick="addToCart('Franky’s Robot Model', 2300)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://ih1.redbubble.net/image.981491973.0952/ur,tapestry_lifestyle_dorm_medium,tall_portrait,750x1000.u1.jpg); background-size: cover;"></div>
+                <div class="poster-title">Revolutionary Flag</div>
+                <div class="poster-price">1200 berries</div>
+                <button class="btn-add" onclick="addToCart('Revolutionary Flag', 1200)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://i.etsystatic.com/17203110/r/il/8dfe05/4397959244/il_fullxfull.4397959244_c2fv.jpg); background-size: cover;"></div>
+                <div class="poster-title">Mihawk’s Sword</div>
+                <div class="poster-price">4000 berries</div>
+                <button class="btn-add" onclick="addToCart('Mihawk’s Sword', 4000)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://www.shimamura.co.jp/cms/media/173/20161021-CIMG7533.JPG); background-size: cover;"></div>
+                <div class="poster-title">Brook’s Guitar</div>
+                <div class="poster-price">300 berries</div>
+                <button class="btn-add" onclick="addToCart('Brook’s Guitar', 300)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://i.etsystatic.com/12657702/r/il/6d76b8/4225593329/il_fullxfull.4225593329_sba2.jpg); background-size: cover;"></div>
+                <div class="poster-title">Crocodiles Hook</div>
+                <div class="poster-price">600 berries</div>
+                <button class="btn-add" onclick="addToCart('Ben’s Bird Cage', 600)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://m.media-amazon.com/images/I/71bENxs7ObL._UX250_.jpg); background-size: cover;"></div>
+                <div class="poster-title">Sengoku Figurine</div>
+                <div class="poster-price">1500 berries</div>
+                <button class="btn-add" onclick="addToCart('Bear Claw', 1500)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://bearhugs.in/cdn/shop/files/28cm-One-Piece-Figure-Sun-God-Gear-5-Nika-Luffy-Action-Figure-GK-Thunderbolt-Monkey-D.jpg__3.webp?v=1726601365); background-size: cover;"></div>
+                <div class="poster-title">Luffy (Nika)</div>
+                <div class="poster-price">5000 berries</div>
+                <button class="btn-add" onclick="addToCart('Luffy (Nika)', 5000)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://m.media-amazon.com/images/I/81hh7Pz4w1L._AC_SL1500_.jpg); background-size: cover;"></div>
+                <div class="poster-title">Doflamingo’s Glass</div>
+                <div class="poster-price">800 berries</div>
+                <button class="btn-add" onclick="addToCart('Doflamingo’s Glass', 800)">Add to Cart</button>
+            </div>
+
+            <div class="poster">
+                <div class="img" style="background-image: url(https://www.jodostore.com/cdn/shop/files/OnePiece-TheShukko-BennBeckmanFigure-Banpresto_1_grande.png?v=1715538295); background-size: cover;"></div>
+                <div class="poster-title">Benn Beckman figurine</div>
+                <div class="poster-price">1500 berries</div>
+                <button class="btn-add" onclick="addToCart('Benn Beckman figurine', 1500)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>COPYRIGHT © 2024 ZENO KAi , ALL RIGHTS SERVED.</p>
+    </div>
+</body>
+</html>
